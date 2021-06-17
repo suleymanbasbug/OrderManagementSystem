@@ -1,0 +1,16 @@
+{% block header %} {{ include ("admin/include/_header.html.twig") }} {% endblock %}
+{% block sidebar %} {{ include ("admin/include/_sidebar.html.twig") }} {% endblock %}
+
+<div class="main">
+    <div class="main-content">
+        <div class="container-fluid deneme">
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    {% block content %} {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block footer %} {{ include ("admin/include/_footer.html.twig") }} {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Kategori Listesi{% endblock %}
+
+{% block content %}
+    <h2>Kategoriler</h2>
+    <br>
+    {{ include('admin/messages.html.twig') }}
+    <a href="{{ path('admin_categories_new') }}"class="btn btn-info btn-md btn-block"> <span class="glyphicon glyphicon-plus"></span>Kategori Ekle</a>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Başlık </th>
+            <th>Açıklama </th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.title }} </td>
+                <td>{{ category.description }}</td>
+                <td>
+                    <a href="{{ path('admin_categories_edit', {'id': category.id}) }}"class="btn btn-block btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Güncelle</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('admin_categories_delete', {'id': category.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                        <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+                    </form>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

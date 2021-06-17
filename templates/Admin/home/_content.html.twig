@@ -1,0 +1,24 @@
+<table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adet</th>
+            <th>Adres</th>
+            <th>İndirim Kuponu</th>
+        </tr>
+        </thead>
+        <tbody>
+        {# {% for order in orders %} #}
+            <tr>
+                <td>Id</td>
+                <td>Adet</td>
+                <td>Adres</td>
+                <td>İndirim Kuponu</td>
+            </tr>
+        {#  {% else %}#}
+            <tr>
+                <td colspan="13">Kayıtlı Sipariş Yok</td>
+            </tr>
+       {#{% endfor %}#}
+        </tbody>
+    </table>

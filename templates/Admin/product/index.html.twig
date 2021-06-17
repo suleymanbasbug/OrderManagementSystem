@@ -1,0 +1,56 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+
+{% block content %}
+    <h2>Ürünler</h2>
+    <br>
+    {{ include('admin/messages.html.twig') }}
+    <a href="{{ path('admin_product_new') }}" class="btn btn-info btn-md btn-block"> <span
+                class="glyphicon glyphicon-plus"></span>Ürün Ekle</a>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>Fiyat</th>
+            <th>Kategori</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    {% for cat in catlist %}
+                        {% if cat.id==product.category.id %}
+                            {{ cat.title }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('admin_product_edit', {'id': product.id}) }}"
+                       class="btn btn-block btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+                        Güncelle</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('admin_product_delete', {'id': product.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                        <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

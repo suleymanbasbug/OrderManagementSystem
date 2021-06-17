@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Order Management System Admin Panel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="{{ asset('Admin') }}/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('Admin') }}/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('Admin') }}/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="{{ asset('Admin') }}/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{{ asset('Admin') }}/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('Admin') }}/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('Admin') }}/assets/img/favicon.png">
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        function openWin(windowURL,windowsName,windowsFeatures) { window.open(windowURL,windowsName,windowsFeatures);}
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+            </div>
+
+
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/logout"><i class="lnr lnr-exit"></i> <span>Çıkış</span></a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
